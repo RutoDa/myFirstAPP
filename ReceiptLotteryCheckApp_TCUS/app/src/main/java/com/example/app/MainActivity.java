@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 + String.valueOf(dayOfMonth);
     }
 
-
+    boolean internet_b;
 
     public void search(View v) {
         //按下查詢鍵後進入此function
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
             check_t.setTextColor(0xFFE91E63);
         } else {
             catchInfo(input_year, input_month);//抓取該期的中獎資訊
-            check_info(input_num);//檢查是否中獎
+            if (internet_b) check_info(input_num);//檢查是否中獎
         }
     }
 
@@ -349,12 +349,14 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
+            internet_b = true;
 
         } catch (Exception e) {
             Log.i("mytag", e.toString());
             //做一個沒有連線的告訴 用TOAST&TextView
             Toast.makeText(this, "請先連接網際網路", Toast.LENGTH_SHORT).show();
             set_en(false);
+            internet_b = false;
         }
     }
 
