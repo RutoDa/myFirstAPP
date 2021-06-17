@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/dataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/dataButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/dataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="選擇發票日期"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/dateWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dataButton"
+        app:layout_constraintStart_toEndOf="@+id/dataButton" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="請點選發票日期"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="請輸入統一編號(8位數號碼)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataButton" />
+
+    <TextView
+        android:id="@+id/numCheck_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_num" />
+
+    <EditText
+        android:id="@+id/input_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        android:text="範例:12345678"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="89dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:onClick="search"
+        android:text="查詢"
+        app:layout_constraintStart_toEndOf="@+id/input_num"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/bingo_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:enabled="false"
+        android:onClick="changeToBingoInfo"
+        android:text="查看該期的中獎號碼"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_num" />
+
+    <ScrollView
+        android:id="@+id/rule_info"
+        android:layout_width="362dp"
+        android:layout_height="321dp"
+        android:layout_marginTop="16dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bingo_info_button">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Precautions_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:text="領獎注意事項:\n1.領獎期間自109年10月6日起至110年1月5日止，中獎人請於領獎期間攜帶國民身分證(非本國國籍人士得以護照、居留證或內政部移民署核發入出境許可證等替代)及中獎統一發票，依代發獎金單位公告之兌獎營業時間臨櫃兌領，逾期不得領獎。\n2.統一發票未依規定載明金額者，不得領獎。\n3.統一發票買受人為政府機關、公營事業、公立學校、部隊及營業人者，不得領獎。\n4.中三獎(含)以上者，依規定應由發獎單位扣繳20﹪所得稅款。\n5.中五獎 及雲端發票專屬獎500元（含）以上者，依規定應繳納0.4%印花稅款，但已於財政部電子發票整合服務平臺或統一發票兌獎APP設定領獎帳戶兌領獎金者，免繳納印花稅。\n6.中獎之統一發票，每張按其最高中獎獎別限領1個獎金。\n7.詳細領獎規定，請查閱「統一發票給獎辦法」。若有疑義，請洽財金公司客服專線：4128282(手機請撥：02-4128282)，或至財金公司網站查詢。" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bingo_info"
+        android:layout_width="364dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="4dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bingo_info_button">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="特別獎號碼:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="特獎號碼:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="頭獎號碼:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView21"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="增開六獎:"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/bingo_1_3_t" />
+
+        <TextView
+            android:id="@+id/special_1_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/textView21"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/special_2_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/special_1_t"
+            app:layout_constraintTop_toBottomOf="@+id/special_1_t" />
+
+        <TextView
+            android:id="@+id/bingo_1_1_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/special_2_t"
+            app:layout_constraintTop_toBottomOf="@+id/special_2_t" />
+
+        <TextView
+            android:id="@+id/bingo_1_2_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/bingo_1_1_t"
+            app:layout_constraintTop_toBottomOf="@+id/bingo_1_1_t" />
+
+        <TextView
+            android:id="@+id/bingo_1_3_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/bingo_1_2_t"
+            app:layout_constraintTop_toBottomOf="@+id/bingo_1_2_t" />
+
+        <TextView
+            android:id="@+id/bingo_6_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            android:textColor="#E91E63"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/bingo_1_3_t"
+            app:layout_constraintTop_toBottomOf="@+id/bingo_1_3_t" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="364dp"
+            android:layout_height="206dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bingo_6_t">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="359dp"
+                    android:layout_height="500dp"
+                    android:text="特別獎:\n同期統一發票收執聯8位數號碼與特別獎號\n碼相同者獎金1,000萬元\n特獎:\n同期統一發票收執聯8位數號碼與特獎號碼\n相同者獎金200萬元\n頭獎:\n同期統一發票收執聯8位數號碼與頭獎號碼\n相同者獎金20萬元\n二獎:\n同期統一發票收執聯末7位數號碼與頭獎中獎號碼末7位\n相同者各得獎金4萬元\n三獎:\n同期統一發票收執聯末6位數號碼與頭獎中獎號碼末6位\n相同者各得獎金1萬元\n四獎:\n同期統一發票收執聯末5位數號碼與頭獎中獎號碼末5位\n相同者各得獎金4千元\n五獎:\n同期統一發票收執聯末4位數號碼與頭獎中獎號碼末4位\n相同者各得獎金1千元\n六獎:\n同期統一發票收執聯末3位數號碼與頭獎中獎號碼末3位\n相同者各得獎金2百元\n增開六獎:\n同期統一發票收執聯末3位數號碼與增開六獎號碼\n相同者各得獎金2百元"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/writerInfo"
+        android:layout_width="103dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:onClick="launchWriterInfo"
+        android:text="作者資訊"
+        app:layout_constraintStart_toEndOf="@+id/precaution_button"
+        app:layout_constraintTop_toTopOf="@+id/bingo_info_button" />
+
+    <Button
+        android:id="@+id/precaution_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:enabled="false"
+        android:onClick="changeToPrecaution"
+        android:text="注意事項"
+        app:layout_constraintStart_toEndOf="@+id/bingo_info_button"
+        app:layout_constraintTop_toTopOf="@+id/bingo_info_button" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#需要在開獎日後一天才能查詢"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
